@@ -1,1 +1,82 @@
-/* You can add global styles to this file, and also import other style files */
+/* css resetter - starts */
+/* source - https://alligator.io/css/minimal-css-reset/ */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* css resetter - Ends */
+  @import './styles/variables.scss';
+
+  html,body{
+    height: 100%;
+    font-family: $primary_font_style;
+  }
+  button{
+    height: $btn_height;
+    border: none;
+    border-radius: $btn_radius;
+    background-color: $primary-color;
+    color:$font_white;
+    font-family: $primary_font_style;
+    cursor: pointer;
+  
+    width: $btn_width;
+    
+  }
+
+  %layout{
+    background-color: $primary-color;
+    color: $font_white;
+    font-size: $primary_font;
+    
+  }
+
+input,select{
+  height: $input_height;
+  border: none;
+  border: 1px solid $secondary-color;
+  border-radius: $btn_radius;
+  padding: $input_padding;
+  
+}
+  
+.grid_layout{
+  margin: $input_margin;
+}
+.error_message {
+  color: $error-color;
+  font-size: $secondary_font;
+}
+.success_message{
+  color: $success-color;
+}
+select{
+  padding: 0;
+}
+.btn_disabled{
+  background-color: $secondary-color;
+}
+  
+  
+  
+

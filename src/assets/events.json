@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "event_name":"Standup comedy",
+        "event_image":"../assets/images/event-listing/microphone.jpg",
+        "event_date":"2020/06/30 ",
+        "number_of_seats":20
+    },
+    {
+        "id":2,
+        "event_name":"Cooking workshop",
+        "event_image":"../assets/images/event-listing/chef.jpg",
+        "event_date":"2020/06/30",
+        "number_of_seats":15
+    },
+    {
+        "id":3,
+        "event_name":"Stay fit",
+        "event_image":"../assets/images/event-listing/exercise.jpg",
+        "event_date":"2020/06/30",
+        "number_of_seats":3
+    },
+    {
+        "id":4,
+        "event_name":"Creativity with photography",
+        "event_image":"../assets/images/event-listing/camera.jpg",
+        "event_date":"2020/06/30",
+        "number_of_seats":0
+    }
+]

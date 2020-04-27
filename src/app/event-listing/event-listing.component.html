@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="center" [formGroup]="eventsForm" class="grid_layout">
+<input  type="text" formControlName="searchValue" placeholder="SEARCH EVENTS"></div>
+<ng-container *ngIf="( events |async | filter: eventsForm.get('searchValue').value) as results">
+    <div *ngIf="results.length<1" fxLayout="row" fxLayoutAlign="center" class="error_message">No results found!</div>
+<div fxLayout="row wrap" fxLayout.xs="column"  class="grid_layout" fxLayoutAlign="center center" 
+    *ngFor="let event of results">
+    
+    <div fxFlex="20" fxFlex.xs="100">
+        <img [src]="event.event_image" alt="{{event.event_name}}" class="event_image_element">
+    </div>
+    <div fxFlex="15" fxFlex.xs="100" fxFlex.sm="20">
+        {{event.event_name}}
+    </div>
+    <div fxFlex="10" fxFlex.xs="100" fxFlex.sm="15">
+        {{event.event_date}}
+    </div>
+
+    <div fxFlex="10" fxFlex.xs="100">{{event.number_of_seats}}</div>
+    <div fxFlex="20" fxFlex.xs="100">
+        <div *ngIf="event.number_of_seats>0"><button (click)="bookSeats(event.event_name,event.number_of_seats)">Book your seats</button></div>
+<div *ngIf="event.number_of_seats<1">Sold Out</div></div>
+</div>
+</ng-container>

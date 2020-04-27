@@ -1,0 +1,90 @@
+<form (ngSubmit)="bookTickets()" novalidate [formGroup]="bookingForm">
+    <div fxLayout="row" class="grid_layout">
+        <div fxLayout="column" fxFlex="40" fxFlex.xs="85" fxFlex.sm="60" fxLayoutGap="10px" fxFlexOffset="30"
+            fxFlexOffset.xs="7" fxFlexOffset.sm="15">
+            <h1>{{title}}</h1>
+            <h2>Number of available seats - {{numberOfSeats}} </h2>
+            <div *ngIf="successMessage" class="success_message">Tickets booked successfully !</div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                <label for="userName">
+                    Name
+                </label>
+                <input type="text" fxFlex="40" id="userName" formControlName="userName">
+
+            </div>
+            <div fxLayoutAlign="end" *ngIf="isFormSubmitted">
+                <div class="error_message" *ngIf="bookingForm.get('userName').errors?.required"> Please enter your name!
+                </div>
+                <div class="error_message" *ngIf="bookingForm.get('userName').errors?.pattern">Only letters and spaces
+                    are allowed!</div>
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between"><label for="emailId">
+                    Email
+                </label>
+                <input type="email" id="emailId" fxFlex="40" formControlName="email"></div>
+
+            <div fxLayoutAlign="end" *ngIf="isFormSubmitted">
+                <div class="error_message" *ngIf="bookingForm.get('email').errors?.required"> Please enter your email!
+                </div>
+                <div class="error_message" *ngIf="bookingForm.get('email').errors?.email">Invalid email!</div>
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between"><label for="phone">
+                    Phone Number
+                </label>
+                <input type="text" id="phone" fxFlex="40" formControlName="phone"></div>
+            <div fxLayoutAlign="end" class="error_message"
+                *ngIf="isFormSubmitted && bookingForm.get('phone').errors?.pattern">Please enter 10 digit phone number
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between"><label for="seats">
+                    No. of seats
+                </label>
+                <select formControlName="number_of_seats" (change)="onChangeSelect()" [ngModel]="''" fxFlex="40">
+                    <option value="">Please select seats</option>
+                    <option *ngFor="let seat of seats" value="{{seat}}">{{seat}}</option>
+                </select>
+
+            </div>
+
+            <div fxLayoutAlign="end">
+                <div class="error_message"
+                    *ngIf="isFormSubmitted && bookingForm.get('number_of_seats').errors?.required"> Please enter number
+                    of seats!</div>
+                <div class="error_message" *ngIf="invalidSeats">Number of seats selected is more than available seats!
+                </div>
+
+            </div>
+
+            <div *ngIf="numberOfSeatsControl>1 && !invalidSeats" fxLayout="column" fxLayoutGap="10px">
+                <div *ngFor="let dummy of ' '.repeat(numberOfSeatsControl -1).split(''), let x = index">
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                        <label for="attendee+ {{x+2}}">
+                            Name of Attendee {{x+2}}
+                        </label>
+                        <input type="text" id="attendee+{{x+2}}" fxFlex="40" formControlName="attendee{{x+2}}" /></div>
+                    <div fxLayoutAlign="end" class="error_message message_layout"
+                        *ngIf="isFormSubmitted && bookingForm.get(getAttendeeIndex(x+2)).errors?.required">
+                        Please enter the name of Attendee {{x+2}}!</div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <button type="submit" [disabled]="successMessage" [ngClass]="{'btn_disabled':successMessage}">Submit</button>
+                <button [disabled]="successMessage" 
+                    (click)="cancel()" [disabled]="successMessage" [ngClass]="{'btn_disabled':successMessage}">Cancel</button></div>
+
+                    <div *ngIf="formData" fxLayout="row">
+                        <div fxLayout="column">
+                           <div *ngIf="formData.userName">Name - {{formData.userName}}</div>
+                            <div *ngIf="formData.email">Email - {{formData.email}}</div>
+                            <div *ngIf="formData.phone">Phone Number - {{formData.phone}}</div>
+                            <div *ngIf="formData.number_of_seats">No of seats - {{formData.number_of_seats}}</div>
+                            <div *ngIf="formData.attendee_2">Attendee 2 - {{formData.attendee_2}}</div>
+                            <div *ngIf="formData.attendee_3">Attendee 3 - {{formData.attendee_3}}</div>
+                            <div *ngIf="formData.attendee_4">Attendee 4 - {{formData.attendee_4}}</div>
+                            <div *ngIf="formData.attendee_5">Attendee 5 - {{formData.attendee_5}}</div>
+                            <div *ngIf="formData.attendee_6">Attendee 6 - {{formData.attendee_6}}</div>
+                    </div></div>
+        </div>
+        
+    </div>
+</form>

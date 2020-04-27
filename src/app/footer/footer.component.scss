@@ -1,0 +1,7 @@
+@import '../../styles/variables.scss';
+@import "../../styles.scss";
+
+.layout_footer{
+    @extend %layout;
+    height: 40px;
+}
