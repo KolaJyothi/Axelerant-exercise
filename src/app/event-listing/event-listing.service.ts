@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class EventListingService{
+export class EventListingService {
     eventsUrl = 'assets/events.json';
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient) {
 
     }
-    getAllEvents(): Observable<Event[]>{
+    getAllEvents(): Observable<Event[]> {
         return this.http.get<Event[]>(this.eventsUrl);
     }
 }

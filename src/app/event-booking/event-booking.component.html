@@ -68,23 +68,25 @@
                 </div>
             </div>
             <div fxLayout="row" fxLayoutGap="10px">
-                <button type="submit" [disabled]="successMessage" [ngClass]="{'btn_disabled':successMessage}">Submit</button>
-                <button [disabled]="successMessage" 
-                    (click)="cancel()" [disabled]="successMessage" [ngClass]="{'btn_disabled':successMessage}">Cancel</button></div>
+                <button type="submit" [disabled]="successMessage"
+                    [ngClass]="{'btn_disabled':successMessage}">Submit</button>
+                <button [disabled]="successMessage" (click)="cancel()" [disabled]="successMessage"
+                    [ngClass]="{'btn_disabled':successMessage}">Cancel</button></div>
 
-                    <div *ngIf="formData" fxLayout="row">
-                        <div fxLayout="column">
-                           <div *ngIf="formData.userName">Name - {{formData.userName}}</div>
-                            <div *ngIf="formData.email">Email - {{formData.email}}</div>
-                            <div *ngIf="formData.phone">Phone Number - {{formData.phone}}</div>
-                            <div *ngIf="formData.number_of_seats">No of seats - {{formData.number_of_seats}}</div>
-                            <div *ngIf="formData.attendee_2">Attendee 2 - {{formData.attendee_2}}</div>
-                            <div *ngIf="formData.attendee_3">Attendee 3 - {{formData.attendee_3}}</div>
-                            <div *ngIf="formData.attendee_4">Attendee 4 - {{formData.attendee_4}}</div>
-                            <div *ngIf="formData.attendee_5">Attendee 5 - {{formData.attendee_5}}</div>
-                            <div *ngIf="formData.attendee_6">Attendee 6 - {{formData.attendee_6}}</div>
-                    </div></div>
+            <div *ngIf="formData" fxLayout="row">
+                <div fxLayout="column">
+                    <div *ngIf="formData.userName">Name - {{formData.userName}}</div>
+                    <div *ngIf="formData.email">Email - {{formData.email}}</div>
+                    <div *ngIf="formData.phone">Phone Number - {{formData.phone}}</div>
+                    <div *ngIf="formData.number_of_seats">No of seats - {{formData.number_of_seats}}</div>
+                    <div *ngIf="formData.attendee2">Attendee 2 - {{formData.attendee2}}</div>
+                    <div *ngIf="formData.attendee3">Attendee 3 - {{formData.attendee3}}</div>
+                    <div *ngIf="formData.attendee4">Attendee 4 - {{formData.attendee4}}</div>
+                    <div *ngIf="formData.attendee5">Attendee 5 - {{formData.attendee5}}</div>
+                    <div *ngIf="formData.attendee6">Attendee 6 - {{formData.attendee6}}</div>
+                </div>
+            </div>
         </div>
-        
+
     </div>
 </form>

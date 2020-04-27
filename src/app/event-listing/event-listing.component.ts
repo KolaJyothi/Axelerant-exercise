@@ -13,15 +13,15 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 export class EventListingComponent implements OnInit {
   events: Observable<Event[]>;
   eventsForm: FormGroup;
-  filterValue:string;
+  filterValue: string;
 
-  constructor(private eventListingService: EventListingService, private router: Router,private fb:FormBuilder) { }
+  constructor(private eventListingService: EventListingService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-   this.eventsForm=this.fb.group({
-      searchValue:null
-    })
-    
+    this.eventsForm = this.fb.group({
+      searchValue: null
+    });
+
 
     this.events = this.eventListingService.getAllEvents();
   }
